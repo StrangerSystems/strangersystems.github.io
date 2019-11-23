@@ -7,18 +7,19 @@
 const path = require(`path`)
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
-  const blogPostTemplate = path.resolve(`src/templates/blogTemplate.js`)
+  const postTemplate = path.resolve(`src/templates/post.js`)
   const result = await graphql(`
     {
       allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] },
+        sort: { order: ASC, fields: [frontmatter___date] },
         filter: { fields: { draft: { ne: true } } },
         limit: 1000
       ) {
         edges {
           node {
             frontmatter {
-              path
+              path,
+              title
             }
           }
         }
@@ -26,17 +27,30 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     }
   `)
 
-  // Handle errors
   if (result.errors) {
     reporter.panicOnBuild(`Error while running GraphQL query.`)
     return
   }
 
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  const edges = result.data.allMarkdownRemark.edges
+  for (const [index, { node }] of edges.entries()) {
+    const previousNode = edges[index - 1]
+    const nextNode = edges[index + 1]
+
+    const previous = previousNode ? {
+      path: previousNode.node.frontmatter.path,
+      title: previousNode.node.frontmatter.title
+    } : null
+
+    const next = nextNode ? {
+      path: nextNode.node.frontmatter.path,
+      title: nextNode.node.frontmatter.title
+    } : null
+
     createPage({
       path: node.frontmatter.path,
-      component: blogPostTemplate,
-      context: {},
+      component: postTemplate,
+      context: { previous, next },
     })
-  })
+  }
 }
