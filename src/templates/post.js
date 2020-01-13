@@ -24,16 +24,12 @@ export default function Template({ data, pageContext }) {
         />
       </div>
 
-      <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-        <Image />
+      <div>
+        {previous && <Link to={previous.path}>{previous.title}</Link>}
       </div>
 
       <div>
-      {previous && <Link to={previous.path}>{previous.title}</Link>}
-      </div>
-
-      <div>
-      {next && <Link to={next.path}>{next.title}</Link>}
+        {next && <Link to={next.path}>{next.title}</Link>}
       </div>
     </Layout>
   )
