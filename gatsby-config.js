@@ -36,5 +36,6 @@ module.exports = {
     },
     `gatsby-transformer-remark`,
     'gatsby-plugin-draft',
+    `gatsby-plugin-styled-components`,
   ],
 }

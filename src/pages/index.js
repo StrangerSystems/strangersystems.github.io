@@ -1,17 +1,37 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react'
+import styled from 'styled-components';
+import Layout from '../components/layout'
 
-import s2Full from '../images/s2_full.svg'
+export default class extends React.Component {
+  render() {
+    return (
+      <Layout>
+        <Block>
+          <h1>We help</h1>
+          <h1>build ideas.</h1>
+          <span>
+            It can be complicated to turn ideas into products, we make
+            things easy.
+          </span>
+          <button>
+            Find out more
+          </button>
+        </Block>
+      </Layout>
+    );
+  }
+}
 
-import SEO from "../components/seo"
-
-const IndexPage = () => (
-    <>
-        <SEO title="Welcome Home" />
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <img src={s2Full} style={{ width: '25%', height: '25%' }} />
-        </div>
-    </>
-)
-
-export default IndexPage
+const Block = styled.div`
+  display: flex;
+  flex-direction: column;
+  
+  > span {
+    font-size: 95%;
+  }
+  
+  > button {
+    width: 8em;
+    margin-top: 1em;
+  }
+`;

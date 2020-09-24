@@ -1,0 +1,113 @@
+::selection {
+    background-color: #E1F2FE;
+    color: #000;
+}
+
+/*::-webkit-scrollbar {*/
+/*    width: 12px;*/
+/* }*/
+
+/*::-webkit-scrollbar-track {*/
+/*    background: #F8F8FC;*/
+/*}*/
+
+/*::-webkit-scrollbar-thumb {*/
+/*    background-color: #999999;*/
+/*    border-radius: 20px;*/
+/*    border: 3px solid #F8F8FC;*/
+/*}*/
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+#___gatsby,
+#gatsby-focus-wrapper {
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:active,
+a:hover {
+    outline-width: 0;
+    font-weight: bold;
+}
+
+a:visited {
+    color: inherit;
+}
+
+b,
+strong {
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+html {
+    font: 1em Lato, sans-serif;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+body {
+    color: #555555;
+    background-color: #f8f8f8;
+    font-family: Lato, sans-serif;
+    font-weight: normal;
+    word-wrap: break-word;
+}
+
+img {
+    max-width: 100%;
+    padding: 0;
+    margin: 0 0 1.45rem;
+}
+
+h1 {
+    padding: 0;
+    margin: 0 0 1.45rem;
+    color: inherit;
+    font-weight: bold;
+    font-size: 2rem;
+    line-height: 1.1;
+}
+
+h2 {
+    padding: 0;
+    margin: 0 0 1.45rem;
+    color: inherit;
+    font-weight: bold;
+    font-size: 1.62671rem;
+    line-height: 1.1;
+}
+
+h3 {
+    padding: 0;
+    margin: 0 0 1.45rem;
+    font-weight: bold;
+    font-size: 1.38316rem;
+    line-height: 1.1;
+}
+
+@media only screen and (max-width: 480px) {
+    html {
+        font-size: 100%;
+    }
+}

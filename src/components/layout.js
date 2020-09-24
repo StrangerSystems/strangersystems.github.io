@@ -1,51 +1,69 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
+import React from 'react'
+import PropTypes from 'prop-types'
+import { StaticQuery, graphql } from 'gatsby'
+import styled from 'styled-components'
 
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import Header from './header';
+import Footer from './footer';
 
-import Header from "./header"
+import './layout.css'
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
+export default class Layout extends React.Component {
+  render() {
+    const { children } = this.props;
+
+    return <StaticQuery
+      query={graphql`
+        query SiteTitleQuery {
+          site {
+            siteMetadata {
+              title
+            }
+          }
         }
-      }
-    }
-  `)
+      `}
 
-  return (
-    <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
-    </>
-  )
+      render={data => (
+        <Page>
+          <Top>
+            <Header siteTitle={data.site.siteMetadata.title} />
+
+            <Main>
+              <main>{children}</main>
+            </Main>
+          </Top>
+
+          <Bottom>
+            <Footer />
+          </Bottom>
+        </Page>
+      )}
+    />
+  }
 }
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default Layout
+const Page = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+const Top = styled.div`
+  fex: 1 0 auto;
+`;
+
+const Bottom = styled.div`
+  flex: 0 1 10%;
+`;
+
+const Main = styled.div`
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 0 1.0875rem 1.45rem;
+  padding-top: 0;
+`;
