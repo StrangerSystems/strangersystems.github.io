@@ -11,11 +11,11 @@ export default class Header extends React.Component {
     return (
       <Container>
         <Main>
-          <a href='/'>
+          <Name href='/'>
             <h3 style={{ margin: '1em 0' }}>
               {siteTitle}
             </h3>
-          </a>
+          </Name>
           <Nav>
             <StyledLink to='#'>
               Services
@@ -40,14 +40,14 @@ export default class Header extends React.Component {
 }
 
 const StyledLink = styled(props => <Link {...props} />)`
-  color: black;
+  color: white !important;
+  font-weight: bold;
   text-decoration: none;
   margin-right: 1em;
 `;
 
-
 const Container = styled.header`
-  background: none;
+  background: transparent;
 `;
 
 const Main = styled.div`
@@ -55,8 +55,13 @@ const Main = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  max-width: 960px;
-  padding: 1.45rem 1.0875rem;
+  max-width: calc(1080px - 3em);
+  width: 100%;
+  padding: 1.5em;
+`;
+
+const Name = styled.a`
+  > h3 { color: #28C6D0; }
 `;
 
 const Nav = styled.div`

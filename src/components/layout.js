@@ -59,11 +59,9 @@ const Top = styled.div`
 
 const Bottom = styled.div`
   flex: 0 1 10%;
+  background: #252344;
 `;
 
 const Main = styled.div`
-  margin: 0 auto;
   max-width: 960px;
-  padding: 0 1.0875rem 1.45rem;
-  padding-top: 0;
 `;
