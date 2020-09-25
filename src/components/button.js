@@ -2,10 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 class Button extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const { className, children, onClick, disabled } = this.props;
 

@@ -17,7 +17,7 @@ export default class Header extends React.Component {
             </h3>
           </Name>
           <Nav>
-            <StyledLink to='#'>
+            <StyledLink to='#services'>
               Services
             </StyledLink>
 
@@ -29,7 +29,7 @@ export default class Header extends React.Component {
               About Us
             </StyledLink>
 
-            <StyledLink to='#'>
+            <StyledLink to='#contact'>
               Contact
             </StyledLink>
           </Nav>
@@ -58,16 +58,28 @@ const Main = styled.div`
   max-width: calc(1080px - 3em);
   width: 100%;
   padding: 1.5em;
+
+  @media screen and (max-width: 48em) {
+    flex-wrap: wrap;
+  }
 `;
 
 const Name = styled.a`
   > h3 { color: #28C6D0; }
+
+  @media screen and (max-width: 48em) {
+    margin-right: 2em;
+  }
 `;
 
 const Nav = styled.div`
   display: flex;
   justify-content: space-between;
-  flex: 0 1 40%;
+  flex: 0 1 50%;
+
+  @media screen and (max-width: 48em) {
+    flex: 1 1 50%;
+  }
 `;
 
 Header.propTypes = {
