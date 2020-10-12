@@ -59,7 +59,7 @@ const Top = styled.div`
 
 const Bottom = styled.div`
   flex: 0 1 10%;
-  background: #252344;
+  background: #1C2230;
 `;
 
 const Main = styled.div`
