@@ -46,6 +46,7 @@ export default class HeroBlock extends React.Component {
 const Waves = styled.div`
   width: 100%;
   display: flex;
+  z-index: 1;
 
   > img {
     width: 100%;
@@ -57,33 +58,17 @@ const StyledButton = styled(Button)`
   margin-top: 2em;
 `;
 
-const Skew = styled.div`
-  transform: skewY(-3.5deg);
-  transform-origin: top left;
-  width: 100%;
-  background: #252344;
-  top: -8.0em;
-  height: 800px;
-  z-index: -1;
-  position: absolute;
-  background-color: #1C2230;
-  // background: linear-gradient(130deg, rgba(2,0,36,1) 0%, rgba(37,35,68,1) 20%, rgba(16,127,192,1) 74%, rgba(40,198,208,1) 100%, rgba(16,127,192,1) 100%);
-  
-  @media screen and (max-width: 589px) {
-    top: -8.5em;
-  }
-`;
-
 const Content = styled.div`
   margin-top: 3em;
   margin-right: auto;
   margin-left: auto;
-  margin-bottom: -10em;
+  margin-bottom: -5em;
   width: 100%;
   max-width: 1080px;
   padding: 0 3em;
   display: flex;
   align-items: center;
+  z-index: 2;
     
   > span {
     font-size: 95%;

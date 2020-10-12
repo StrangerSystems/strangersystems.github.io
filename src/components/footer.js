@@ -1,12 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import logoSvg from '../images/s2_full.svg'
+
 export default class Footer extends React.Component {
   render() {
     return (
       <StyledFooter>
         <Logo>
-          Stranger Systems
+          <img src={logoSvg} alt='Logo'/>
         </Logo>
         <Icons>
           <a href='#'>Linkedin</a>
@@ -20,6 +22,16 @@ export default class Footer extends React.Component {
     );
   }
 }
+
+const Logo = styled.div`
+  height: 12em;
+  margin-right: 1em;
+  padding: 1em;
+  
+  > img {
+    height: 100%;
+  }
+`;
 
 const StyledFooter = styled.footer`
   max-width: calc(1080px - 3em);
@@ -35,10 +47,6 @@ const StyledFooter = styled.footer`
   > div {
     margin-right: 2em;
   } 
-`;
-
-const Logo = styled.div`
-  padding: 1em;
 `;
 
 const Icons = styled.div`

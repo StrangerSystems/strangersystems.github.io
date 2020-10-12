@@ -1,8 +1,9 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { Link } from "gatsby"
+import { Link } from 'gatsby'
+import logoSvg from '../images/text_logo.svg'
 
 export default class Header extends React.Component {
   render() {
@@ -12,9 +13,13 @@ export default class Header extends React.Component {
       <Container>
         <Main>
           <Name href='/'>
-            <h3 style={{ margin: '1em 0' }}>
-              {siteTitle}
-            </h3>
+            <Logo>
+              <img src={logoSvg} alt='Logo'/>
+            </Logo>
+
+            {/*<h3 style={{ margin: '1em 0' }}>*/}
+            {/*  {siteTitle}*/}
+            {/*</h3>*/}
           </Name>
           <Nav>
             <StyledLink to='#services'>
@@ -66,9 +71,22 @@ const Main = styled.div`
 
 const Name = styled.a`
   > h3 { color: #28C6D0; }
+  display: flex;
+  align-items: center;
 
   @media screen and (max-width: 48em) {
     margin-right: 2em;
+  }'
+`;
+
+const Logo = styled.div`
+  margin: 1em 0;
+  width: 10em;
+  margin-right: 1em;
+  
+  > img {
+    height: 100%;
+    margin: 0;
   }
 `;
 
